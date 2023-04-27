@@ -1,0 +1,26 @@
+doc1="""Natural language processing (NLP) is an interdisciplinary subfield of linguistics, computer science, and artificial intelligence concerned with the interactions between computers and human language, in particular how to program computers to process and analyze large amounts of natural language data."""
+
+import nltk
+nltk.download('stopwords')
+
+from nltk.corpus import stopwords
+
+stop_words = set(stopwords.words('english'))
+tokenized_words = word_tokenize(doc1)
+filtered_words = []
+for w in tokenized_words:
+    if w not in stop_words:
+        filtered_words.append(w)
+print(tokenized_words)
+print(filtered_words)
+
+#Remove punctuations
+import string as st
+
+punctuations=list(st.punctuation)
+filtered_tokens=[]
+
+for i in filtered_words:
+    if i not in punctuations:
+        filtered_tokens.append(i)
+print(filtered_tokens)

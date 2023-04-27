@@ -1,0 +1,32 @@
+import nltk
+nltk.download('averaged_perceptron_tagger')
+
+from nltk.tokenize import word_tokenize
+from nltk import pos_tag
+filtered_tokens= []
+**#we should do word tokenization and stopwords removal before doing this program** 
+
+print("Filtered Tokens After Removing Punctuations:",filtered_tokens)
+
+pos_tokens=pos_tag(filtered_tokens)
+print("PoS tags:",pos_tokens)
+
+nltk.download('maxent_ne_chunker')
+nltk.download('words')
+
+from nltk import ne_chunk
+
+doc2="""In 1950, Alan Turing published an article titled "Computing Machinery and Intelligence" which proposed what is now called the Turing test as a criterion of intelligence, though at the time that was not articulated as a problem separate from artificial intelligence. The proposed test includes a task that involves the automated interpretation and generation of natural language."""
+
+from nltk.tokenize import word_tokenize
+from nltk import pos_tag
+doc_words = word_tokenize(doc2)
+pos_tokens=pos_tag(doc_words)
+print("PoS tags:",pos_tokens)
+"""
+for chunk in ne_chunk(pos_tokens):
+        if hasattr(chunk, 'label'):
+          print(chunk.label(), ' '.join(c[0] for c in chunk))
+"""
+ck = ne_chunk(pos_tokens)
+print(ck)

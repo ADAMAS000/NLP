@@ -1,0 +1,25 @@
+from nltk.stem import PorterStemmer
+from nltk.tokenize import sent_tokenize, word_tokenize
+
+ps = PorterStemmer()
+stemmed_words=[]
+
+for w in filtered_tokens:     
+     stemmed_words.append(ps.stem(w))
+
+print("Filtered Tokens After Removing Punctuations:",filtered_tokens)
+print("Stemmed Tokens:",stemmed_words)
+
+nltk.download('wordnet')
+
+from nltk.stem.wordnet import WordNetLemmatizer
+from nltk.stem.porter import PorterStemmer
+
+lem = WordNetLemmatizer()
+lemm_words=[]
+for w in filtered_tokens:
+  lemm_words.append(lem.lemmatize(w,'v'))
+
+print("Filtered Tokens After Removing Punctuations:",filtered_tokens)
+print("Stemmed Tokens:",stemmed_words)
+print("Lemmatized Word:",lemm_words)
